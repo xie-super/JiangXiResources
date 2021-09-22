@@ -31,8 +31,8 @@ public class UploadController {
     @Autowired
     private MaterialService materialService;
     //密钥请前往腾讯云后台查询
-    private static String secretId="AKIDqRkZEeDDJEvO49orY9VhdwIWeZO0OBrI";
-    private static String secretKey="lJSUG9D5g2VyDcmJisAG52zmR0NgmdTs";
+    private static String secretId="";
+    private static String secretKey="";
     private static String bucketName="yuntu-1305198966";
     private static String RegionName="ap-shanghai";
     private static String preUrl = "https://yuntu-1305198966.cos.ap-shanghai.myqcloud.com/jiangxi/province1";
