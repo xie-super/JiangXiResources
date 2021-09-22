@@ -1,51 +1,36 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# 工程简介
+9/13号吧好像，接了个网站项目，具体是做一个关于资料展示的网站，顺便回顾了一下Spring Boot工程没有前后端分离网页制作的流程，这边理一下项目的结构。
+## 技术栈
+框架使用的是Spring Boot，UI框架用到了layui,ACE - admin（基于bootstrap），渲染模版用的是Thymeleaf,数据库mysql，ORM框架用的是mybatis。同时文件上传用到了腾讯云的COS。
+
+## 项目结构
+见[手撸一个简单的Spring Boot项目](https://juejin.cn/post/7008089386940268574)
+
+## 部分界面
+
+- 进入界面
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/22bfbec6a08a4a7093f5bf643b0c7f0e~tplv-k3u1fbpfcp-watermark.image?)
+
+- 客户端主界面
+
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3114dede04bd445ebc28dd479a4134bf~tplv-k3u1fbpfcp-watermark.image?)
+
+- 管理员端登陆界面
+
+![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c7f7ea6112b48c6b460133cec0dd936~tplv-k3u1fbpfcp-watermark.image?)
+- 管理员端主界面
+
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41a2cac15cd046afad961397c3cccc19~tplv-k3u1fbpfcp-watermark.image?)
+
+## 具体演示如下：
+
+https://yuntu-1305198966.cos.ap-shanghai.myqcloud.com/jiangxi/IMG_0673.mp4
+
+
+## 项目地址
+[github项目地址](https://github.com/xie-super/JiangXiResources/tree/master)
 
 
 
-# 延伸阅读
-
-=======
-# TeacheEvaluation
-接单项目，教师评价网站
->>>>>>> a2774304395209521885dc778ece5a0f3046d7ea
-=======
-# teacherEvaluation
-
-#### 介绍
-接单项目，教评网站
-
-#### 软件架构
-软件架构说明
 
 
-#### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
->>>>>>> 9c853bb9ebe96186d21877970ea4bb8beaf9f87c
