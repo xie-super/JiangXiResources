@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xie.teacher_evalu.persistence.StudentAccountMapper">
+    <select id="getAccountByStudent_idAndPassword" parameterType="string" resultType="StudentAccount">
+        select student_id,password,
+        academe,student_name,major,sex,time_of_enrollment,class_number
+        from student_message natural join student_account
+        where student_id = #{arg0} and password= #{arg1}
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

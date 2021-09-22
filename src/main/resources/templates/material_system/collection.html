@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>馆藏目录</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+
+</head>
+<body>
+<img src="/images/collection/collection.png" alt="" style="width: auto" usemap="#Map">
+
+<map name="Map">
+    <area shape="rect" coords="3,195,193,538" onfocus="blur();" id="zhishu">
+    <area shape="rect" coords="212,182,408,528" onfocus="blur();" href="/account/exitSystem">
+    <area shape="rect" coords="427,198,620,545" onfocus="blur();" href="/account/exitSystem">
+    <area shape="rect" coords="640,161,835,508" onfocus="blur();" href="/account/exitSystem">
+    <area shape="rect" coords="853,220,1048,566" onfocus="blur();" id="qikan">
+    <area shape="rect" coords="1067,204,1267,551" onfocus="blur();" href="/account/exitSystem">
+</map>
+<script src="/layui/layui.js"></script>
+<script src="/layui/bottom.js" charset="utf-8"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+</script>
+<style>
+    img {border: none;vertical-align: middle; }
+
+</style>
+</body>
+</html>

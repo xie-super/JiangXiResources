@@ -1,0 +1,25 @@
+#mainsection1 {
+    /* 相对定位 */
+    left: 6%;
+    top:25%;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    /* 让子元素保留其3D位置 */
+    transform-style: preserve-3d;
+    /* 动画 名称 时长 linear 是匀速运动 infinite是无限次播放 */
+    animation: rotate 5s linear infinite;
+}
+
+#mainsection2 {
+    /* 相对定位 */
+    right: 6%;
+    top:25%;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    /* 让子元素保留其3D位置 */
+    transform-style: preserve-3d;
+    /* 动画 名称 时长 linear 是匀速运动 infinite是无限次播放 */
+    animation: rotate 5s linear infinite;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>市地方志</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+
+</head>
+<body>
+<table class="layui-table">
+    <colgroup>
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+
+        <th style="text-align: center">市地方志名称</th>
+
+    </tr>
+    </thead>
+    <tbody id="student_list">
+    <tr th:each="item:${localRecordsList}">
+        <td class="records"  style="text-align: center"><a th:href="@{'/material/resourcesContent?pdfName='+${item.pdfName}+'&category=1'}"  th:text="${item.pdfName}"></a></td>
+    </tr>
+    </tbody>
+</table>
+<script src="/layui/layui.js"></script>
+<script src="/layui/bottom.js" charset="utf-8"></script>
+<script type="text/javascript" src="/js/teacher_main.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+</script>
+</body>
+</html>

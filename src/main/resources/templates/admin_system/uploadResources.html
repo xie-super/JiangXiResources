@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>志书添加</title>
+  <link rel="stylesheet" href="/layui/css/layui.css" media="all">
+
+</head>
+<body>
+<form class="layui-form column-content-detail">
+
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">
+
+      <div class="layui-form-item">
+        <label class="layui-form-label" style="float: left; width: 6%">  分类</label>
+        <div class="layui-input-block">
+          <select name="categoryId" lay-verify="required" id="category" style="float: left; width: 30%">
+            <option value="" style="float: left;width: 30% ">请选择分类</option>
+            <option value="100001">省地方志</option>
+            <option value="100002">市地方志</option>
+          </select>
+        </div>
+      </div>
+      <hr class="layui-border-black">
+      <div class="layui-form-item">
+        <label class="layui-form-label" style="float: left; width: 6%">标题</label>
+        <div class="layui-input-block">
+          <input type="text" style= "width:30%" name="title" id="title" required lay-verify="number" placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <hr class="layui-border-black">
+      <div class="layui-form-item">
+        <label class="layui-form-label" style="float: left; width: 6%">分册名称</label>
+        <div class="layui-input-block">
+          <input type="text" name="name" style="width: 30%; " id="name" required lay-verify="required" placeholder="分册名称" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <hr class="layui-border-black">
+      <div class="layui-form-item">
+        <label class="layui-form-label" style="float: left; width: 6%">分册序号</label>
+        <div class="layui-input-block">
+          <select name="categoryId" lay-verify="required" id="no">
+            <option value="">序号</option>
+
+            <option value="100001">1</option>
+            <option value="100002">2</option>
+            <option value="100003">3</option>
+            <option value="100004">4</option>
+            <option value="100005">5</option>
+            <option value="100006">6</option>
+            <option value="100007">7</option>
+            <option value="100008">8</option>
+            <option value="100009">9</option>
+            <option value="100010">10</option>
+            <option value="100011">11</option>
+            <option value="100012">12</option>
+            <option value="100013">13</option>
+            <option value="100014">14</option>
+            <option value="100015">15</option>
+          </select>
+        </div>
+      </div>
+      <hr class="layui-border-black">
+      <div class="layui-upload">
+        <button type="button" class="layui-btn layui-btn-normal"style="float: left; width: 20%" id="testList">选择志书上传</button>
+        <div class="layui-upload-list" style="max-width: 1000px;">
+          <table class="layui-table">
+            <colgroup>
+              <col width="150">
+              <col width="100">
+              <col width="100">
+              <col width="100">
+            </colgroup>
+            <thead>
+            <tr><th>文件名</th>
+              <th>大小</th>
+              <th>上传进度</th>
+              <th>操作</th>
+            </tr></thead>
+            <tbody id="demoList"></tbody>
+          </table>
+        </div>
+
+      </div>
+      <hr class="layui-border-black">
+      <input type="hidden" id="mainImage" name="mainImage" required value="default_img.png"  class="layui-input">
+      <input type="hidden" id="status" name="status" value="1" class="layui-input">
+
+
+    </div>
+  </div>
+
+  <div class="layui-form-item" style="padding-left: 10px;">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="add_product" id="testListAction">立即提交</button>
+      <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+<script src="https://unpkg.com/cos-js-sdk-v5/dist/cos-js-sdk-v5.min.js"></script>
+<script src="/js/jquery-1.7.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="/layui/layui.all.js"></script>
+<script>
+  layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'element', 'upload', 'layedit'], function() {
+    var form = layui.form,
+            layer = layui.layer,
+            $ = layui.jquery,
+            laypage = layui.laypage,
+            laydate = layui.laydate,
+            layedit = layui.layedit,
+            element = layui.element,
+            upload=layui.upload;
+
+    //创建一个编辑器
+
+//演示多文件列表
+
+
+   /* $("#testListAction").on('click',function(e){
+
+    })*/
+
+
+    var uploadListIns = upload.render({
+
+      elem: '#testList'
+      ,elemList: $('#demoList') //列表元素对象
+      ,url: '/upload/upload_image_cos.do' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+      ,before:function (obj){
+        this.data={
+          'title':$("#title").val()
+          ,'no':$("#no option:selected").text()
+          ,'category':$("#category option:selected").text()
+          ,'name':$("#name").val()
+        };//关键代码
+
+        /*title = $("#title").val();
+        category = $("#category option:selected").text();
+        no = $("#no option:selected").text();
+        name = $("#name").val();
+        alert(title.length)
+        if(title.length == 0||category.length==0 || no.length == 0 ||name.length == 0){
+          layer.open({
+            icon:0,
+            title: '错误'
+            ,content: '信息未填写完成'
+          });
+          return false;
+        }*/
+
+      }
+
+      ,accept: 'file'
+      ,multiple: false
+      ,number: 1,
+      size:30*1024
+      ,auto: false
+      ,bindAction: '#testListAction'
+      ,choose: function(obj){
+        var that = this;
+        var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+        //读取本地文件
+        obj.preview(function(index, file, result){
+          var tr = $(['<tr id="upload-'+ index +'">'
+            ,'<td>'+ file.name +'</td>'
+            ,'<td>'+ (file.size/1014).toFixed(1) +'kb</td>'
+            ,'<td><div class="layui-progress" lay-filter="progress-demo-'+ index +'"><div class="layui-progress-bar" lay-percent=""></div></div></td>'
+            ,'<td>'
+            ,'<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>'
+            ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
+            ,'</td>'
+            ,'</tr>'].join(''));
+
+          //单个重传
+          tr.find('.demo-reload').on('click', function(){
+            obj.upload(index, file);
+          });
+
+          //删除
+          tr.find('.demo-delete').on('click', function(){
+            delete files[index]; //删除对应的文件
+            tr.remove();
+            uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+          });
+
+          that.elemList.append(tr);
+          element.render('progress'); //渲染新加的进度条组件
+        });
+      }
+      ,done: function(res, index, upload){ //成功的回调
+        var that = this;
+
+        if(res.code == 0){ //上传
+          this.progress(100,index);
+          layer.msg("上传成功",{icon:1});
+        var tr = that.elemList.find('tr#upload-'+ index)
+                ,tds = tr.children();
+
+        tds.eq(3).html(''); //清空操作
+        delete this.files[index]; //删除文件队列已经上传成功的文件
+        return;
+        }
+        this.error(index, upload);
+      }
+      ,allDone: function(obj){ //多文件上传完毕后的状态回调
+        console.log(obj)
+      }
+      ,error: function(index, upload){ //错误回调
+        var that = this;
+        var tr = that.elemList.find('tr#upload-'+ index)
+                ,tds = tr.children();
+        tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+      }
+      ,progress: function(n, index){ //注意：index 参数为 layui 2.6.6 新增
+        element.progress('progress-demo-'+ index, n + '%'); //执行进度条。n 即为返回的进度百分比
+      }
+    });
+  /*  var uploadInst = upload.render({
+      elem: '#test1' //绑定元素
+      ,url:'/upload/upload_image_cos.do'//后台上传接口
+      ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+        layer.msg('上传中',{icon: 16,time:0,shade:0.01});
+      }
+      ,done: function(res, index, upload){
+        layer.closeAll('loading');
+        //status=1代表上传成功
+        if(res.status == 1){
+          layer.msg("上传成功",{icon:1});
+          //do something （比如将res返回的图片链接保存到表单的隐藏域）
+          $('#upload_img').attr('src','https://sr-1251242863.cos.ap-shanghai.myqcloud.com/webdemo/images/'+res.path);
+          $('#mainImage').val(res.path);
+        }
+
+        //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+        var item = this.item;
+        //文件保存失败
+        //do something
+      }
+      ,error: function(){
+        layer.closeAll('loading');
+        //请求异常回调
+        layer.msg("上传失败，请重试",{icon:2});
+      }
+      ,size:2048 //文件大小限制
+      ,number:10 //文件数量限制
+      ,accept: 'file' //文件类型限制
+
+    });*/
+  });
+</script>
+
+
+<style>
+  input{
+    width: 30%!important;
+    margin-top: 10px!important;
+  }
+</style>
+</body>
+</html>

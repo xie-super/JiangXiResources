@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>江西省方志馆</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/left-side-menu.css">
+    <link rel="stylesheet" type="text/css" href="/font/iconfont.css">
+
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/css/layuiChange.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="/js/left-side-menu.js"></script>
+    <script type="text/javascript" src="/js/span-click.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+
+</head>
+<body class="mainBody">
+
+<div class="left-side-menu" style="float: left; height: 100%">
+<!-- 左侧动态缩放-->
+<!--    <div class="lsm-expand-btn">-->
+<!--        <div class="lsm-mini-btn">-->
+<!--            <label>-->
+<!--                <input type="checkbox" checked="checked">-->
+<!--                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">-->
+<!--                    <circle cx="50" cy="50" r="30"/>-->
+<!--                    <path class="line&#45;&#45;1" d="M0 40h62c18 0 18-20-17 5L31 55"/>-->
+<!--                    <path class="line&#45;&#45;2" d="M0 50h80"/>-->
+<!--                    <path class="line&#45;&#45;3" d="M0 60h62c18 0 18 20-17-5L31 45"/>-->
+<!--                </svg>-->
+<!--            </label>-->
+
+<!--        </div>-->
+<!--    </div>-->
+
+
+    <div class="lsm-container">
+        <div class="lsm-scroll">
+            <div class="lsm-sidebar">
+                <ul>
+
+                    <!-- 1 -->
+                    <li class="lsm-sidebar-item">
+                        <a href="javascript:;">
+                            <i class="iconfont lsm-sidebar-icon icon-icon-"></i><span>江西概要</span><i
+                                class="iconfont lsm-sidebar-more"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="javascript:;"><span class="iconfont icon-guanliyuan" id="jxgl">江西概览</span></a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:;"><span class="iconfont icon-icon_qq" id="gpwh">赣鄱文化</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--2-->
+                    <li class="lsm-sidebar-item">
+                        <a href="javascript:;">
+                            <i class="iconfont lsm-sidebar-icon icon-shexiangtou"></i>
+                            <span id="">数字资源</span>
+                            <i class="iconfont lsm-sidebar-more"></i>
+                        </a>
+
+                        <ul>
+                            <li>
+                                <a href="javascript:;"><span class="iconfont icon-IOTtubiao_huabanfuben" id="sdfz">省地方志</span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:;"><span class="iconfont icon-wenduji" id="ldfz">市地方志</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!--  3  -->
+                    <li class="lsm-sidebar-item">
+                        <a href="javascript:;">
+                            <i class="iconfont lsm-sidebar-icon icon-iconset0211"></i>
+                            <span>馆藏目录</span>
+                            <i class="iconfont lsm-sidebar-more"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="javascript:;" id="teahcerInf"><span class="iconfont icon-IOTtubiao_huabanfuben" id="gcml">志书与期刊报纸</span></a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+
+
+
+                    <!--   4   -->
+       <!--             <li class="lsm-sidebar-item">
+                        <a href="javascript:;">
+                            <i class="iconfont lsm-sidebar-icon icon-tuichu5"></i>
+                            <span>退出系统</span>
+                            <i class="iconfont lsm-sidebar-more"></i>
+                        </a>
+                        <ul>
+                            <li><a href="/"><span class="iconfont icon-tuichu5">退出</span></a></li>
+                        </ul>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<div class="layui-body" style="float:left" >
+    <div style="" id="rightBody">
+    <div class = "titlePic" style="position: relative; width: 100%; height: 130px">
+        <img src="/images/shouye1/img_1.png" alt="江苏方志馆" style="position: absolute; height: 100% ;float: left;width: 100%">
+    </div>
+    <div id="contentBody" style="height: 560px; overflow: auto">
+        <div class = "picTra" style="position: absolute">
+            <div class="layui-carousel " id="test3" lay-filter="test4" style="position: absolute; width:710px; height: 550px">
+                <div carousel-item="">
+                    <div><img src="/images/shouye1/img1.png" alt="" style="width:700px; height: 550px"></div>
+                    <div><img src="/images/shouye1/img2.png" alt="" style="width:700px; height: 550px"></div>
+                    <div><img src="/images/shouye1/img3.png" alt="" style="width:700px; height: 550px"></div>
+                    <div><img src="/images/shouye1/img4.png" alt="" style="width:700px; height: 550px"></div>
+                </div>
+            </div>
+        </div>
+        <div calss = "introduction" style="float: right ; width: 550px; height: 710px">
+            <div class="layui-bg-gray" style="padding: 30px;">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-header">简介</div>
+                            <div class="layui-card-body">
+                                江西省方志馆作为一个省级方志馆，馆藏源丰富，设施齐全，馆藏品于全国方志馆中位居前列，是全世界物质以及非物质文化遗产的收藏圣地，每年来自世界各地的参观络绎不绝。目前，江西省方志馆承载着公共文化服务机、收藏保存她方文献料、展示区风貌和本土特色、开展爱国主义教肓的功能、交流学习研究等的功能。随着源共享时代的到来，实现江西省方志馆源的共享，江西省方志馆网站的建设已成公众迫切的需求。打造线上线下相结合的江西省方志馆，实现她方志信息查询检索、数字文献在线阅读、网上展厅览等功能，高江西省方志馆文化源服务信息化水平。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-header">历史贡献</div>
+                            <div class="layui-card-body">
+                                江西自古人才辈出，群星璀璨，为中华民族作出了杰出贡献。秦汉时期由于战争以及距离省会都市相对遥远，经济以及科技技术相对落后，随着唐代经济中心南移和科举制度的推行，江西人文逐渐兴起，“人才之盛，遂甲于天下”，经济科技实力也逐步位居中国南方区域的前列。
+                                江西历代进士10531人，占全国进士的10.7％。其中状元41人，占全国总数的5.6％。自唐至清，江西籍宰更是人才辈出，为中华上下五千年历史的传承贡献了不可或缺的力量，新中国成立以来更是为中华民族的伟大复兴灌注了源源不断的新生力量，并且我们相信，传奇仍将延续。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        <div class = "bottom" style="position: relative; width: 550px;height:100%;bottom: 0px">
+            <img src="/images/shouye1/img_2.png" alt="" style="position: absolute; height: 100%">
+        </div>
+    </div>
+</div>
+<script src="/layui/layui.js" charset="utf-8"></script>
+<script src="/layui/bottom.js" charset="utf-8"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script>
+
+    var app = new Vue({
+        el: '#top',
+        data: {
+            message: "江西省方志馆"
+        }
+    });
+</script>
+</body>
+</html>
+
+

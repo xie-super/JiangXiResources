@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>省地方志</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+    <legend style="text-align: center">文献列表</legend>
+</fieldset>
+
+<table class="layui-table" lay-even="" lay-skin="row">
+    <colgroup>
+        <col width="300">
+        <col width="300">
+        <col width="200">
+        <col width="200">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th class="header">题名</th>
+        <th class="header">索书号</th>
+        <th class="header">责任者</th>
+        <th class="header">出版社</th>
+        <th class="header">出版日期</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="item:${collectionList}">
+        <td class="records"  style="text-align: center" th:text="${item.title}"></td>
+        <td class="records"  style="text-align: center" th:text="${item.ISBN}"></td>
+        <td class="records"  style="text-align: center" th:text="${item.principal}"></td>
+        <td class="records"  style="text-align: center" th:text="${item.publisher}"></td>
+        <td class="records"  style="text-align: center" th:text="${item.date}"></td>
+
+    </tr>
+    </tbody>
+</table>
+<script src="/layui/layui.js"></script>
+<script src="/layui/bottom.js" charset="utf-8"></script>
+<script type="text/javascript" src="/js/teacher_main.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+</script>
+<style>
+    .header{
+        background: rgba(194, 194, 215, 0.87);
+    }
+    .records{
+        color: #0C0C0C;
+
+    }
+    .records:hover{
+        color: #0000FF;
+        background:  #00FF00;
+    }
+</style>
+</body>
+</html>
